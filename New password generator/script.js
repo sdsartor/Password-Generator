@@ -4,8 +4,8 @@ const passLengthResult = document.querySelector("#length-result");
 const includeNumbers = document.querySelector("#numbers");
 const includeSymbols = document.querySelector("#symbols");
 const generateBtn = document.querySelector("#generate");
-const copyPass = document.querySelector("#copy");
-// Set default password length 20 max on load 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   passLength.value = 20;
   passLengthResult.innerText = 20;
@@ -14,14 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let onLoadSymbols = includeSymbols.checked;
   result.value = generatePassword(onLoadNumbers, onLoadSymbols, onLoadLength);
 });
-// Listen for password range change 
+
 passLength.addEventListener("change", (event) => {
   passLengthResult.innerText = event.target.value;
 });
-// Listen for copy button 
-copyPass.addEventListener("click", () => {
-  copy(result.value);
-});
+
+
 generateBtn.addEventListener("click", () => {
   const length = passLength.value;
   const numbers = includeNumbers.checked;
@@ -52,22 +50,4 @@ function getRandomNumber() {
 function getRandomSymbol() {
   const symbols = "!@#$%^&*(){}[]=<>/,.";
   return symbols[Math.floor(Math.random() * symbols.length)];
-}
-// Copy generated password in more secure way 
-function copy(text) {
-  const input = document.createElement("input");
-  input.setAttribute("value", text);
-  document.body.appendChild(input);
-  input.select();
-  let copiedResult = document.execCommand("copy");
-  document.body.removeChild(input);
-  const alert = document.createElement("div");
-  alert.classList.add("alert");
-  alert.textContent = "Copied!";
-  document.body.appendChild(alert);
-  setTimeout(() => {
-    document.querySelector(".alert").style.display = "none";
-    document.body.removeChild(alert);
-  }, 1000);
-  return result;
 }
