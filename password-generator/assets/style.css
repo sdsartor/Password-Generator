@@ -65,3 +65,8 @@ align-items: center;
 #button:hover{
     color: aliceblue;
 }
+
+.options{
+    padding-top: 15px;
+    font-family: cursive;
+}

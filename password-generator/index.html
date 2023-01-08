@@ -13,26 +13,34 @@
  <div class="box">   
     <h2>Random Password Generator</h2>
     <input type="text" placeholder="Create Password Here" id="password" readonly>
-    <table>
+    <span id="result"></span>
+   
+
+        </table>
+      <div class="options">
+        <div class="option">
+          <label>Length</label>
+          <input type="number" id="length" min="4" max="20" value="10">
+        </div>
+        <div class="option">
+            <label>Include Lowercase</label>
+            <input type="checkbox" id="lowercase" checked>
+          </div>
+        <div class="option">
+          <label>Include Uppercase</label>
+          <input type="checkbox" id="uppercase" checked>
+        </div>
+        <div class="option">
+          <label>Include Numbers</label>
+          <input type="checkbox" id="numbers" checked>
+        </div>
+        <div class="option">
+          <label>Include Symbols</label>
+          <input type="checkbox" id="symbols" checked>
+        </div>
         <th><div id="button" class="button1" onclick="genPassword()">Generate</div></th>
-        <th><div id="button" class="button2" onclick="copyPassword()">Copy</div></th>
     </table>
     </div>
-    <script type="text/javascript">
-        var password = document.getElementById("password");
-
-        function genPassword(){
-            var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var passwordlength = 12;
-            var password = "";
-
-            for (var i = 0; i <= passwordlength; i++){
-                var randomNumber = Math.floor(Math.random() * chars.length);
-                password += chars.substring(randomNumber, randomNumber +1);
-        }
-
-        document.getElementById("password").value = password;
-    }
-        </script>
+    <script src="script.js"></script>
 </body>
 </html>
